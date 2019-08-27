@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<h1>Letras</h1>
+
+<table border="1">
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+    {% for letra in object_list %}
+    <tr>
+    <td>{{ letra.name }}</td>
+    <td><a href="{% url "letra_view" letra.id %}">view</a></td>
+    <td><a href="{% url "letra_edit" letra.id %}">edit</a></td>
+    <td><a href="{% url "letra_delete" letra.id %}">delete</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<a href="{% url "letra_new" %}">Nova</a>
+
+{% endblock %}

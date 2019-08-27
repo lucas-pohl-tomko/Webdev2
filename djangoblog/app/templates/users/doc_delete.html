@@ -1,0 +1,12 @@
+
+
+{% extends 'base.html' %}
+
+{% block page_content %}
+<h2>Deletar partitura</h2>
+<form method="post">{% csrf_token %}
+    Tem certeza que deseja deletar "{{ object }}" ?
+    <input type="submit" value="Submit" />
+</form>
+  <p><a href="{% url 'homedoc' %}">Cancelar</a></p>
+{% endblock %}

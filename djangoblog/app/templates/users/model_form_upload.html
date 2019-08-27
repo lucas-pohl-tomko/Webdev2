@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+<h2>Cadastrar Partitura</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+  </form>
+
+  <p><a href="{% url 'homedoc' %}">Voltar para partiturass</a></p>
+{% endblock %}

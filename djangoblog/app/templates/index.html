@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Letras/Partituras{% endblock %}
+
+{% block page_content %}
+
+   
+    <h2>Letras</h2>
+    <ul class="posts">
+        {% for letra in object_list %}
+          <li class="post">
+            <div class="post-thumbnail">
+                <a href="{% url "letra_view" letra.id %}"> view
+                </a>
+            </div>
+            <div class="post-content">
+
+              <div class="post-author">
+                {{ letra.name }}
+              </div>
+              <div class="post-body"> 
+                <p>{{ letra.letra }}</p>
+              </div>
+              <div class="post-footer">
+                <a href="{% url "letra_delete" letra.id %}">delete</a>
+                <a href="{% url "letra_edit" letra.id %}">edit</a>
+                </a>
+                <span class="label label-primary">
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    
+{% endblock %}
